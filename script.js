@@ -53,7 +53,6 @@ themeButton.addEventListener("click", function () {
 	} else if (currenttheme == "brown") {
 		html.style.setProperty("--bgcurrentcolor", "var(--bggray)");
 		html.style.setProperty("--navcurrentcolor", "var(--navgray)");
-        html.style.setProperty("--textcurrentcolor","var(--textlight)");
 		currenttheme = "gray";
 	}
 });
