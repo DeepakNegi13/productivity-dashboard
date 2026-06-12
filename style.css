@@ -1,0 +1,146 @@
+:root {
+  --bglight: #ded4cc;
+  --textLight: white;
+  --bgbrown: #412d15;
+  --bggray: #232a32;
+  --navGray: #273338;
+  --textDark: #131515;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: clamp(10px, 1.1vw, 30px);
+  width: 100%;
+  background-color: var(--bggray);
+  font-size: clamp(30px, 2vw, 40px);
+}
+
+header {
+  border-radius: 15px;
+  height: clamp(40px, 5vw, 90px);
+  width: 100%;
+  background-color: var(--navGray);
+  padding: 0px 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+header #small-name {
+  display: none;
+}
+header #name-of-dashboard {
+  font-size: 1rem;
+}
+header #theme-button {
+  padding: 0.4rem;
+  border-radius: 30px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+header #theme-button:active {
+  scale: 0.9;
+  transition: all ease 0.9s;
+}
+header {
+  margin-bottom: 20px;
+}
+
+main {
+  background-color: transparent;
+}
+main #wallpaper {
+  height: 18vw;
+  width: 100%;
+  background-image: url(https://i.pinimg.com/1200x/04/55/2f/04552fda0587a3ebd5b5af5990a00bbe.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+main #taskBlock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+main #taskBlock .box {
+  flex-shrink: 1;
+  background-color: blue;
+  height: 240px;
+  width: 200px;
+  border-radius: 20px;
+  display: flex;
+  align-items: end;
+  justify-content: end;
+  padding-right: 10px;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+}
+main #taskBlock .box:active {
+  scale: 1.1;
+  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
+}
+main #taskBlock .Card-names {
+  color: var(--textLight);
+  font-size: 0.7rem;
+}
+main #taskBlock #todolist {
+  background-image: url(https://i.pinimg.com/736x/49/67/17/496717051474365248add6d05eedc795.jpg);
+}
+main #taskBlock #DailyPlanner {
+  background-image: url(./img.png);
+}
+main #taskBlock #Motivation {
+  background-image: url(https://i.pinimg.com/736x/59/d3/13/59d31359cdb13e6a07c6c524ec824cde.jpg);
+}
+main #taskBlock #Pomodorotimer {
+  background-image: url(https://i.pinimg.com/736x/a6/b1/96/a6b1965f8e03a6fe5f21e90e750205b4.jpg);
+}
+main #taskBlock #dailygoals {
+  background-image: url(https://i.pinimg.com/1200x/35/3f/bc/353fbcf7b4ea24e7d7e733683d512545.jpg);
+}
+
+.newTab {
+  height: 100%;
+  width: 100%;
+  display: none;
+}
+
+@media (max-width: 684px) {
+  header #small-name {
+    display: block;
+    font-size: 1rem;
+  }
+  header #name-of-dashboard {
+    display: none;
+  }
+  main #wallpaper {
+    height: 45vw;
+  }
+}
+@media (max-width: 425px) {
+  header {
+    background-color: transparent;
+    justify-content: start;
+  }
+  header #small-name {
+    display: none;
+  }
+  header button {
+    font-size: 0.4rem;
+  }
+  main #wallpaper {
+    height: 64vw;
+  }
+}/*# sourceMappingURL=style.css.map */
