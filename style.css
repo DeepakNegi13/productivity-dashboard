@@ -1,10 +1,15 @@
 :root {
   --bglight: #ded4cc;
-  --textLight: white;
+  --textlight: white;
+  --navlight: rgb(190, 184, 184);
   --bgbrown: #412d15;
+  --navbrown: #6b3f0a;
   --bggray: #232a32;
-  --navGray: #273338;
-  --textDark: #131515;
+  --navgray: #3d4754;
+  --textdark: #5ba9ed;
+  --bgcurrentcolor: var(--bggray);
+  --navcurrentcolor: var(--navgray);
+  --textcurrentcolor: var(--textlight);
 }
 
 * {
@@ -17,7 +22,7 @@ html,
 body {
   padding: clamp(10px, 1.1vw, 30px);
   width: 100%;
-  background-color: var(--bggray);
+  background-color: var(--bgcurrentcolor);
   font-size: clamp(30px, 2vw, 40px);
 }
 
@@ -25,7 +30,7 @@ header {
   border-radius: 15px;
   height: clamp(40px, 5vw, 90px);
   width: 100%;
-  background-color: var(--navGray);
+  background-color: var(--navcurrentcolor);
   padding: 0px 1rem;
   display: flex;
   flex-direction: row;
@@ -68,6 +73,7 @@ main #wallpaper {
 main #taskBlock {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   gap: 40px;
   width: 100%;
@@ -92,7 +98,7 @@ main #taskBlock .box:active {
   transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 1s;
 }
 main #taskBlock .Card-names {
-  color: var(--textLight);
+  color: var(--textcurrentcolor);
   font-size: 0.7rem;
 }
 main #taskBlock #todolist {

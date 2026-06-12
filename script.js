@@ -36,7 +36,24 @@ let Dailygoals = document.querySelector(".dailygoals");
 pageOpening(dailygoals, Dailygoals);
 
 //****************theme change code*****************
-// let theme =
-// console.log("theme");
 let html = document.querySelector("html");
-// html.style.setProperty("--bggray", "--bglight");
+let themeButton = document.querySelector("#theme-button");
+let currenttheme = "gray";
+themeButton.addEventListener("click", function () {
+	if (currenttheme === "gray") {
+		html.style.setProperty("--bgcurrentcolor", "var(--bglight)");
+		html.style.setProperty("--navcurrentcolor", "var(--navlight)");
+        html.style.setProperty("--textcurrentcolor","var(--textdark)");
+		currenttheme = "light";
+	} else if (currenttheme == "light") {
+		html.style.setProperty("--bgcurrentcolor", "var(--bgbrown)");
+		html.style.setProperty("--navcurrentcolor", "var(--navbrown)");
+        html.style.setProperty("--textcurrentcolor","var(--textlight)");
+		currenttheme = "brown";
+	} else if (currenttheme == "brown") {
+		html.style.setProperty("--bgcurrentcolor", "var(--bggray)");
+		html.style.setProperty("--navcurrentcolor", "var(--navgray)");
+        html.style.setProperty("--textcurrentcolor","var(--textlight)");
+		currenttheme = "gray";
+	}
+});
