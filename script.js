@@ -1,39 +1,35 @@
-//************page opening function***************
+// //************page opening function***************
 let mainContainer = document.querySelector("main");
 let header = document.querySelector("header");
-function pageOpening(boxName, pageName) {
-	boxName.addEventListener("click", function () {
-		console.log("hello");
-		pageName.style.display = "block";
-		mainContainer.style.display = "none";
+//*************select all box in the form of node list***********
+let box = document.querySelectorAll(".box");
+//**************select all new tab in the form of node list************************
+let newtab = document.querySelectorAll(".newTab");
+// ****************for back button logic******************
+let back = document.querySelector(".backbutton");
+
+//**********************select single cards**************8 */
+box.forEach(function (elem) {
+	//*****************edd event listener on all single cards********************* */
+	elem.addEventListener("click", function () {
+		//*****************open new tab with the use of index of node list of new tab and the index is same corresponding to id of the corresponding cards*****************
+		newtab[elem.id].style.display = "block";
 		header.style.display = "none";
+		mainContainer.style.display = "none";
+		back.style.display = "block";
+
 	});
-}
+});
 
-//*************** to do list page opening *************
-let todolist = document.querySelector("#todolist");
-let Todolist = document.querySelector(".todolist");
-pageOpening(todolist, Todolist);
-//*************** daily planner page opening *************
-
-let dailyPlanner = document.querySelector("#DailyPlanner");
-let DailyPlanner = document.querySelector(".DailyPlanner");
-pageOpening(dailyPlanner, DailyPlanner);
-//*************** motivation page opening *************
-
-let motivation = document.querySelector("#Motivation");
-let Motivation = document.querySelector(".Motivation");
-pageOpening(motivation, Motivation);
-//*************** pomodoro timer  page opening *************
-
-let pomodorotimer = document.querySelector("#Pomodorotimer");
-let Pomodorotimer = document.querySelector(".Pomodorotimer");
-pageOpening(pomodorotimer, Pomodorotimer);
-//*************** daily goals page opening *************
-
-let dailygoals = document.querySelector("#dailygoals");
-let Dailygoals = document.querySelector(".dailygoals");
-pageOpening(dailygoals, Dailygoals);
+//*****************back button logic***************************
+back.addEventListener("click", function () {
+	mainContainer.style.display = "block";
+	header.style.display = "flex";
+	newtab.forEach(function (elem) {
+		elem.style.display = "none";
+	});
+	back.style.display = "none";
+});
 
 //****************theme change code*****************
 let html = document.querySelector("html");
@@ -43,12 +39,12 @@ themeButton.addEventListener("click", function () {
 	if (currenttheme === "gray") {
 		html.style.setProperty("--bgcurrentcolor", "var(--bglight)");
 		html.style.setProperty("--navcurrentcolor", "var(--navlight)");
-        html.style.setProperty("--textcurrentcolor","var(--textdark)");
+		html.style.setProperty("--textcurrentcolor", "var(--textdark)");
 		currenttheme = "light";
 	} else if (currenttheme == "light") {
 		html.style.setProperty("--bgcurrentcolor", "var(--bgbrown)");
 		html.style.setProperty("--navcurrentcolor", "var(--navbrown)");
-        html.style.setProperty("--textcurrentcolor","var(--textlight)");
+		html.style.setProperty("--textcurrentcolor", "var(--textlight)");
 		currenttheme = "brown";
 	} else if (currenttheme == "brown") {
 		html.style.setProperty("--bgcurrentcolor", "var(--bggray)");
