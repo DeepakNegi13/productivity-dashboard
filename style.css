@@ -33,12 +33,12 @@ body {
 }
 
 header {
+  display: none;
   border-radius: 15px;
   height: clamp(40px, 5vw, 90px);
   width: 100%;
   background-color: var(--navcurrentcolor);
   padding: 0px 1rem;
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -65,6 +65,7 @@ header {
 }
 
 main {
+  display: none;
   background-color: transparent;
 }
 main #wallpaper {
@@ -245,6 +246,14 @@ main #taskBlock [id="4"] {
 }
 .todolist .toDoPage .taskList::-webkit-scrollbar {
   display: none;
+}
+
+.DailyPlanner {
+  display: block;
+  height: 100%;
+}
+.DailyPlanner h1 {
+  font-size: 2rem;
 }
 
 .Pomodorotimer {

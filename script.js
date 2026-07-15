@@ -5,6 +5,8 @@ let header = document.querySelector("header");
 let box = document.querySelectorAll(".box");
 //**************select all new tab in the form of node list************************
 let newtab = document.querySelectorAll(".newTab");
+let back = document.querySelector(".backbutton");
+
 // ****************for page opening logic******************
 function pageOpening() {
 	//**********************select single cards**************8 */
@@ -23,7 +25,6 @@ pageOpening();
 
 //*****************back button logic***************************
 function backButton() {
-	let back = document.querySelector(".backbutton");
 	back.addEventListener("click", function () {
 		mainContainer.style.display = "block";
 		header.style.display = "flex";
@@ -34,7 +35,6 @@ function backButton() {
 	});
 }
 backButton();
-
 
 //****************theme change code*****************
 let html = document.querySelector("html");
@@ -62,64 +62,62 @@ function changeTheme() {
 changeTheme();
 
 //fetch weather
-async function fetchWeather(city){
-	try{
-		let rawData = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d62301a739ffdafb13590a0f3c063ab3`);
-		if(!rawData.ok){
-			throw new error(`city name is incorrect `);
-			
-		}
-	let data = await rawData.json();
-	let temp = document.querySelector('#temperature')
-	temp.innerHTML = `<p>The current temperature is ${Math.floor(data.main.temp-273.15)}&deg;C</p>`;
-	}catch(err){
-		console.error(err);
-	}
-}
-fetchWeather("bhopal")
+// async function fetchWeather(city) {
+// 	try {
+// 		let rawData = await fetch(
+// 			`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d62301a739ffdafb13590a0f3c063ab3`,
+// 		);
+// 		if (!rawData.ok) {
+// 			throw new error(`city name is incorrect `);
+// 		}
+// 		let data = await rawData.json();
+// 		let temp = document.querySelector("#temperature");
+// 		temp.innerHTML = `<p>The current temperature is ${Math.floor(data.main.temp - 273.15)}&deg;C</p>`;
+// 	} catch (err) {
+// 		console.error(err);
+// 	}
+// }
+// fetchWeather("bhopal");
 
-//fetch time
-async function time() {
-	const url = 'https://api.api-ninjas.com/v1/timezone?timezone=Europe%2FLondon';
-	const options = {
-    	method: 'GET',
-    	headers: {
-        	'X-Api-Key': '0e6vMFovHLEARyaJiVL3OWuoHDBMBI7sZnnMAzJ3'
-    	}
-	};
-	let rawData = await fetch(url,options);
-	let data = await rawData.json();
-	let time = new Date(data.local_time);
-	setInterval(function(){
-		
-		console.log(time);
-		time += 1;
+// //fetch time
+// async function time() {
+// 	const url =
+// 		"https://api.api-ninjas.com/v1/timezone?timezone=Europe%2FLondon";
+// 	const options = {
+// 		method: "GET",
+// 		headers: {
+// 			"X-Api-Key": "0e6vMFovHLEARyaJiVL3OWuoHDBMBI7sZnnMAzJ3",
+// 		},
+// 	};
+// 	let rawData = await fetch(url, options);
+// 	let data = await rawData.json();
+// 	let time = new Date(data.local_time);
+// 	setInterval(function () {
+// 		console.log(time);
+// 		time += 1;
+// 	}, 1000);
 
-	},1000);
+// 	let dateTime = document.querySelector("#dateTime");
+// 	dateTime.innerHTML = time;
+// }
+// time()
 
-	let dateTime =  document.querySelector('#dateTime');
-	dateTime.innerHTML=time;	
-}
-time()
-
-//toDoForm
+toDoForm
 let form = document.querySelector(".toDoForm");
 let totalTask = [];
-form.addEventListener("submit",function(e){
-	let input = document.querySelector('input');
+form.addEventListener("submit", function (e) {
+	let input = document.querySelector("input");
 	e.preventDefault();
 	totalTask.push(input.value);
-	console.log(totalTask )
-	let sum = '';
-	totalTask.forEach(function(elem){
+	console.log(totalTask);
+	let sum = "";
+	totalTask.forEach(function (elem) {
 		sum += `<div class="singleTask">
 			${elem}
 		</div>
-		`
-	})
-	let taskList = document.querySelector('.taskList')
+		`;
+	});
+	let taskList = document.querySelector(".taskList");
 	taskList.innerHTML = sum;
-})
-
-
+});
 
